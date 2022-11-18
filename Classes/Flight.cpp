@@ -1,8 +1,4 @@
 #include "..\\Classes\Flight.h"
-
-
-
-
 template <class T>
 void getValue(string prompt, T& value)
 {
@@ -17,26 +13,18 @@ void getValue(string prompt, T& value)
 		cout << prompt;
 		
 		cin >> value;
-
 	}
 	string endLine;
 	getline(cin, endLine);
-	
 }
-
 template <>
 void getValue<string>(string prompt, string& value)
 {
 	cout << prompt;
 	getline(cin, value);
 	if(value.empty())
-		getline(cin, value);
-	
-	
-		
+		getline(cin, value);		
 }
-
-
 Flight::Flight() {
 	InToFlight();
 }
@@ -47,8 +35,6 @@ Flight::~Flight() {
 void Flight::addFlight() {
 	//auto it = allFlight.begin();
 	flight f;
-	
-	
 	bool flag = false;
 	do {
 		//flag = false;
@@ -74,7 +60,6 @@ void Flight::addFlight() {
 
 	allFlight[f.numFlight] = f;
 }
-
 void Flight::editFlight() {
 	if (!allFlight.empty()) {
 		Flight::print();
@@ -169,8 +154,6 @@ void Flight::editFlight() {
 		cout << "empty" << endl;
 	}
 }
-
-
 void Flight::delFlight() {
 
 	string del_flight;
@@ -179,7 +162,6 @@ void Flight::delFlight() {
 	allFlight.erase(del_flight);
 
 }
-
 void Flight::print() {
 	for (auto it = allFlight.begin(); it != allFlight.end(); ++it) {
 		cout << it->first << "\t" << (it->second).numFlight << endl << "\t" << (it->second).pointSrc
